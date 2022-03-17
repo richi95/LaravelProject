@@ -1,0 +1,146 @@
+main {
+    background-image: url('/img/student-icon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 2wax center;
+    display: block!important;
+}
+header.listHead {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vmax;
+}
+header.listHead > h2, header.listHead > ul {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+header.listHead > h2 { font-size: 2.1rem;}
+header.listHead > ul > li {
+    background-color: #34cae0;
+    border-radius: 0.25rem;
+    border: 1px solid #2cc0d5;
+    margin-left: 1rem;
+}
+header.listHead > ul > li > a {
+    color: #ffffff;
+    padding-right: 0.5rem;
+}
+header.listHead > ul > li > a:hover,
+.fa:hover { color: #ed7b3d;  }
+td { font-size: 1.4rem; }
+.fa {
+    background-color: #2cc0d5;
+    color: #ffffff;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+.avatar {
+    border: 1px solid black;
+    height: 100%;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "groups image"
+    "groups personal"
+    "button personal";
+    grid-gap: 2vmax;
+    justify-content: center;
+    align-content: center;
+    min-height: 40vmax;
+}
+fieldset {
+    display: block;
+    border: 1px solid grey;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgb(189, 195, 199, 0.5);
+}
+legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    background-color: #2cc0d5;
+}
+.alert {
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: red;
+    font-weight: bold;
+    background-color: rgb(255, 0, 0, 0.4);
+    margin-bottom: 1vmax;
+}
+fieldset#personal {
+    grid-area: personal;
+}
+fieldset#groups {
+    grid-area: groups;
+}
+fieldset#iamge {
+    grid-area: image;
+}
+
+fieldset#personal ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    align-items: center;
+    width: 100%;
+}
+fieldset#personal ul span{
+    float: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+fieldset#personal ul li label {
+    display: inline-block;
+    width: 35%;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+input[type=text], input[type=date], input[type=email], select {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.3rem 0;
+}
+input[type=text], input[type=date], input[type=email] {
+    padding-left: 0.5rem;
+}
+#button {
+    grid-area: button;
+}
+input[type=checkbox] {
+}
+.ckeckbox {
+    font-size: 1rem;
+    font-weight: bold;
+}
+#submit {
+    width: 100%;
+    background-color: #ed7b3d;
+    color: #ffffff;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    border-width: 1px;
+    border-color: grey;
+}
+.is-invalid{
+    border: 1px solid red;
+}
+
+#error{
+    font-size: 80%;
+    color: #ed7b3d;
+    font-style: italic;
+}

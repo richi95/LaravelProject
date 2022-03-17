@@ -1,0 +1,505 @@
+/*
+           http://meyerweb.com/eric/tools/css/reset/
+           v2.0 | 20110126
+           License: none (public domain)
+        */
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+strike,
+strong,
+sub,
+sup,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+article,
+aside,
+canvas,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+    display: block;
+}
+
+html {
+    font-family: "Gill Sans", arial, sans-serif;
+    font-size: 1.8vmin;
+    background-color: #e8ecef;
+}
+
+body {
+    line-height: 1;
+    padding: 2vh 10vw;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Common */
+
+nav ul li {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+li.current > a {
+    color: #2cc0d5;
+}
+
+a:hover,
+li.current > a:hover {
+    color: #ed7b3d;
+}
+
+/*li.current>a:hover {}*/
+
+/* Site header */
+
+header.saf {
+    margin-bottom: 2vh;
+    margin-left: 2vmax;
+}
+
+img#logo {
+    height: 5rem;
+}
+
+header.saf > p {
+    font-size: 0.8rem;
+    color: #9ca8af;
+}
+
+/* Site navigation */
+
+ul.site {
+    margin-bottom: -0.5px;
+    padding: 0!important;
+}
+
+ul.site li {
+    background-color: #f4f7f9;
+    border-top: 1px solid #dbe0e4;
+    border-right: 1px solid #dbe0e4;
+    border-bottom: 1px solid #dbe0e4;
+    border-left: 1px solid #dbe0e4;
+    border-radius: 0.5rem 0.5rem 0 0;
+    width: 33%;
+    padding: 2vmax;
+    color: #9ca8af;
+}
+
+ul.site li:hover {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Main content */
+
+main {
+    background-color: #ffffff;
+    border: 1px solid #dbe0e4;
+    border-radius: 0 1rem 1rem 1rem;
+    padding: 2vmax;
+}
+#borderBottom {
+    display: inline;
+}
+/* Footer */
+
+footer {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1.25;
+    color: #9ca8af;
+    padding: 1rem;
+}
+
+footer a {
+    color: inherit;
+}
+
+footer p {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+/*--------------------------------------------------------------*/
+@media only screen and (max-width: 550px) {
+    body {
+        padding: 0;
+    }
+    #main {
+        grid-template-columns: 1fr;
+        padding: 1vh;
+    }
+    .listHead {
+        width: 100%;
+    }
+    td,
+    th {
+        font-size: 12px;
+    }
+    footer {
+        font-size: 10px;
+    }
+    .site > li {
+        width: 49% !important;
+    }
+
+    #main > aside > #students {
+        display: flex;
+        float: right;
+        width: 100%;
+        justify-content: flex-end;
+        margin-bottom: 2vmax;
+    }
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto auto;
+    grid-gap: 2vmax;
+    justify-content: space-between;
+    align-content: stretch;
+}
+form#students {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2vmax;
+    position: relative;
+}
+
+input#nsearch {
+    border-top: 1px solid #9ca8af;
+    border-right: 0;
+    border-bottom: 1px solid #9ca8af;
+    border-left: 1px solid #9ca8af;
+    border-radius: 3px 0 0 3px;
+    font-size: 1rem;
+    height: 2rem;
+    padding-left: 0.5rem;
+}
+input#nsearch:focus {
+    background-color: #34cae0;
+}
+button#nsearchb {
+    height: 2rem;
+    border-top: 1px solid #9ca8af;
+    border-right: 1px solid #9ca8af;
+    border-bottom: 1px solid #9ca8af;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+input#nsearch,
+button#nsearchb,
+ul#namelist {
+    background-color: #e4e8eb;
+}
+ul#namelist {
+    position: absolute;
+    top: 2rem;
+    display: none;
+    width: 100%;
+    border: 1px solid #9ca8af;
+    border-radius: 0 0 3px 3px;
+    padding-left: 0.5rem;
+}
+legend {
+    vertical-align: middle;
+    text-align: left;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+}
+label {
+    font-weight: bold;
+}
+
+#choose {
+    background-color: #34cae0;
+    color: #ffffff;
+    height: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: #2cc0d5;
+}
+
+/*
+           Font Awesome 4.6.1 by @davegandy
+           License: http://fontawesome.io/license
+           (Font: SIL OFL 1.1, CSS: MIT License)
+        */
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url("/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 1rem/1 FontAwesome;
+    font-size: 1rem;
+    text-rendering: auto;
+}
+.fa-inverse {
+    color: #ffffff;
+}
+.fa-user-o:before {
+    content: "\f2c0";
+}
+.fa-file-text:before {
+    content: "\f15c";
+}
+.fa-edit:before {
+    content: "\f044";
+}
+.fa-trash:before {
+    content: "\f1f8";
+}
+.fa-search:before {
+    content: "\f002";
+}
+.fa-arrow-left:before {
+    content: "\f060";
+}
+.fa-arrow-right:before {
+    content: "\f061";
+}
+.fa-chevron-left:before {
+    content: "\f053";
+}
+.fa-chevron-right:before {
+    content: "\f054";
+}
+.fa-check-square-o:before {
+    content: "\f046";
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+ul.pagination li {
+    width: 2rem;
+    height: 2rem;
+    border-left: 1px solid #ffffff;
+    background-color: #cdd7dd;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+ul.pagination li:first-child {
+    border-radius: 3px 0 0 3px;
+}
+ul.pagination li:last-child {
+    border-radius: 0 3px 3px 0;
+}
+ul.pagination li a,
+ul.pagination li span {
+    color: #ffffff;
+}
+ul.pagination li.active {
+    background-color: #34cae0;
+}
+ul.pagination li.active span {
+    color: #000000;
+}
+ul.pagination li a:hover {
+    color: #ed7b3d;
+}
+
+/* Studentlist table */
+header.listHead {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vmax;
+}
+ul.pagination{
+    margin: 0;
+}
+header.listHead h2,
+header.listHead #listCreate,
+header.listHead nav {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+header.listHead > #studentDiv {
+    display: flex;
+    gap: 1rem;
+}
+header.listHead h2 {
+    gap: 0.5rem;
+}
+header.listHead #listCreate {
+    background-color: #34cae0;
+    border-radius: 3px;
+    border: 1px solid #2cc0d5;
+}
+header.listHead #listCreate > a {
+    color: #ffffff;
+    padding: 0 1rem;
+}
+header.listHead > .listButton {
+    display: flex;
+    column-gap: 0.1rem;
+}
+header.listHead > .listButton > button {
+    border: none;
+    background-color: lightgrey;
+    color: #ffffff;
+    padding: 0.5rem 0.7rem;
+}
+header.listHead > .listButton > button:hover {
+    color: #ed7b3d;
+}
+.fa-edit {
+    border-radius: 3px 0 0 3px;
+    background-color: #2cc0d5;
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding: 0.3rem 0.5rem 0.2rem 0.5rem;
+}
+header.listHead > div > a:hover {
+    color: #ed7b3d;
+}
+table {
+    width: 100%;
+}
+.studentList > table > tbody > tr > td,
+th {
+    vertical-align: middle;
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+.studentList th:first-child td:first-child {
+    padding-left: 0;
+}
+.studentList th:last-child
+td:last-child {
+    text-align: right;
+    padding-right: 0;
+}
+th,
+legend {
+    color: #9ca8af;
+    font-weight: normal;
+}
+.avatar {
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    vertical-align: baseline;
+}
+.avatar:hover {
+    opacity: 0.4;
+    border-color: #ed7b3d;
+}
+#groups td {
+    font-weight:600;
+    padding: 0.25rem;
+    
+}
+#check{
+    vertical-align: middle;
+}
+.text-orange{
+    color: #fd7e14;
+}
+/*edit*/
