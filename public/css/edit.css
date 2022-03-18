@@ -45,8 +45,9 @@ form {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "groups image"
     "groups personal"
+    "groups personal"
+    "message personal"
     "button personal";
     grid-gap: 2vmax;
     justify-content: center;
@@ -69,20 +70,15 @@ legend {
     padding: 0.3rem;
     background-color: #2cc0d5;
 }
-.alert {
-    border: 1px solid red;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    color: red;
-    font-weight: bold;
-    background-color: rgb(255, 0, 0, 0.4);
-    margin-bottom: 1vmax;
-}
+
 fieldset#personal {
     grid-area: personal;
 }
 fieldset#groups {
     grid-area: groups;
+}
+fieldset#groups>input {
+    margin-right: 1rem;
 }
 fieldset#iamge {
     grid-area: image;

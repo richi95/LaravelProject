@@ -3,17 +3,30 @@
     <link rel="stylesheet" href="{{ url('/css/edit.css') }}">
 @endsection
 @section('content')
-    <form method="post" novalidate id="data" action="{{route('students.edit.update', ['student' => $student])}}">
-        <input type="hidden" name="id" value="{{$student->id}}">
+    <form method="post" novalidate id="data" action="{{ route('students.edit.update', ['student' => $student]) }}">
+        <input type="hidden" name="id" value="{{ $student->id }}">
         @csrf
         <fieldset id="groups">
+            
             <legend>Editing {{ $student->name }}'s studygroups</legend>
-            {{-- kiválasztott tanuló csoportjai --}}
-        </fieldset>
-        <fieldset id="image">
+            @foreach ($student->course as $group)
+                <input type="checkbox" name="courseDel[]" value="{{$group->id}}" checked>{{ $group->name_of_the_group }}<br>
+            @endforeach
+            @foreach ($available_courses as $course)
+                <input type="checkbox" name="courseAdd[]" value="{{$group->id}}">{{ $course->name_of_the_group }}<br>
+            @endforeach
+
+        </fieldset id="message">
+        {{-- <fieldset id="image">
             <legend>Editing {{ $student->name }}'s avatar</legend>
             <img src="{{ '$student->avatar' }}" alt="{{ $student->avatar }}" class="avatar">
-        </fieldset>
+        </fieldset> --}}
+        @if (Session::has('message'))
+            <div class="text-center">
+                <div class="alert alert-{{ Session::get('message.type') }}" id="sc-mes">
+                    {{ Session::get('message.content') }}</div>
+            </div>
+        @endif
         <fieldset id="personal">
             <legend>Editing {{ $student->name }}'s personal datas</legend>
             <ul>
@@ -24,8 +37,8 @@
                 @error('name')
                     <span id="error">{{ $message }}</span>
                 @enderror
-                
-                
+
+
                 <li>
                     <label for="sex">Sex:</label>
                     <select name="sex" id="sex">

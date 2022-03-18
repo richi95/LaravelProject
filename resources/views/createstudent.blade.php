@@ -52,7 +52,6 @@
 
                     @csrf
 
-
                     <div class="d-md-flex no-warp justify-content-between m-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name"
@@ -131,8 +130,6 @@
                         <span class="text-danger">{{ 'Please choose subject!' }}</span>
                     </div>
                 @enderror
-
-
 
             </div>
             <div class="text-center m-3">
