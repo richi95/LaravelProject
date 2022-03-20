@@ -19,16 +19,12 @@ use App\Models\Course;
 Route::get('/', function () {
     return view('layouts.main');
 });
-Route::get('/studygroup', function () {
-    return view('studygroup');
-});
-
-
-// Route::get('/studygroup/edit', [StudentsController::class, "test"]);
 
 Route::get('/students', [StudentsController::class, "list"]);
 Route::get('/students/{student}', [StudentsController::class, "student"]);
+Route::get('/students/{student}/delete', [StudentsController::class, "delete"])->name('student.delete');
 Route::get('/studygroups', [StudentsController::class, "listgroup"]);
+Route::get('/studygroup/{course}', [StudentsController::class, "groupDetails"])->name('studygroup.details');
 Route::get('/createstudent', [StudentsController::class, "createList"]);
 Route::post('/createstudent', [StudentsController::class, "add"]);
 Route::get('/students/edit/{student}', [StudentsController::class, "studentsEdit"])->name('students.edit');

@@ -10,10 +10,10 @@
             
             <legend>Editing {{ $student->name }}'s studygroups</legend>
             @foreach ($student->course as $group)
-                <input type="checkbox" name="courseDel[]" value="{{$group->id}}" checked>{{ $group->name_of_the_group }}<br>
+                <input type="checkbox" name="courses[{{$group->id}}]" value="{{$group->id}}" checked>{{ $group->name_of_the_group }}<br>
             @endforeach
-            @foreach ($available_courses as $course)
-                <input type="checkbox" name="courseAdd[]" value="{{$group->id}}">{{ $course->name_of_the_group }}<br>
+            @foreach ($available_courses as $group)
+                <input type="checkbox" name="courses[{{$group->id}}]" value="{{$group->id}}">{{ $group->name_of_the_group }}<br>
             @endforeach
 
         </fieldset id="message">

@@ -6,7 +6,7 @@
 
 @section('content')
 <table class="table">
-        {{ $groups->links('includes.paginator') }}
+        {{ $course->links('includes.paginator') }}
         <thead>
             <tr>
                 <th>NAME</th>
@@ -15,11 +15,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($groups as $group)
+            @foreach ($course as $course)
                 <tr>
-                    <td><a class="badge-info" href="studygroups/{{ $group->id }}">{{ $group->name_of_the_group }}</a></td>
-                    <td>{{ $group->leader_of_the_group }}</td>
-                    <td>{{ $group->subject }}</td>
+                    <td><a class="badge-info" href="{{route('studygroup.details', ['course'=> $course])}}">{{ $course->name_of_the_group }}</a></td>
+                    <td>{{ $course->leader_of_the_group }}</td>
+                    <td>{{ $course->subject }}</td>
                 </tr>
             @endforeach
         </tbody>

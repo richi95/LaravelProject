@@ -6,14 +6,11 @@
 @section('content')
     <header class="listHead">
         <h2></h2>
-        <ul>
-            <li><a href="/studygroup/edit"><i class="fa fa-edit"></i>Edit</a></li>
-            <li><a href="/studygroup/{{ '$group->id'}}/delete"><i class="fa fa-trash"></i>Delete</a></li>
-        </ul>
+        
     </header>
-    <h3>{{ '$group->subject' }}</h3>
+    <h3>{{ $course->subject }}</h3>
     <table>
-        <caption>Enrolled students</caption>
+        <caption><-Enrolled students</caption>
         <thead>
                           
             <tr>
@@ -24,7 +21,13 @@
             
         </thead>
         <tbody>
-            
+            @foreach ($course->students as $student)
+                <tr>
+                    <td></td>
+                    <td>{{$student->name}}</td>
+                    <td>{{$student->sex}}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 @endsection

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\StudentStoreMail;
 use App\Mail\StudentUpdateMail;
 use Illuminate\Support\Facades\Request as Input;
+use Illuminate\Support\Arr;
 
 class StudentsController extends Controller
 {
@@ -38,7 +39,10 @@ class StudentsController extends Controller
     {
         $dataSubjects = Course::paginate(5);
 
-        return view('studygroups')->with('groups', $dataSubjects);
+        return view('studygroups')->with('course', $dataSubjects);
+    }
+    function groupDetails(Course $course){
+        return view('studygroup', ['course' => $course]);
     }
 
     function student(Student $student)
@@ -71,6 +75,10 @@ class StudentsController extends Controller
         ]);
     }
 
+    function delete(Student $student){
+
+    }
+
 
     function studentsEdit(Student $student)
     {
@@ -84,17 +92,30 @@ class StudentsController extends Controller
 
     function studentsUpdate(Student $student, UserStoreRequest $request)
     {
+        foreach(Course::get() as $course){
+            if(Arr::exists($request->courses, $course->id)){
+                CourseStudent::updateorcreate([
+                    'course_id' => $course->id,
+                    'student_id' => $student->id
+                ]);
+            }else{
+                CourseStudent::where('course_id', $course->id)->where('student_id', $student->id)->delete();
+            }
+        }
 
+            
+            //CourseStudent::updateorcreate()
         
-        foreach($request->courseDel as $item){
-            $student->course->where('id', $item)->delete();
-        }
+        
+        // foreach($request->courseDel as $item){
+        //     $student->course->where('id', $item)->delete();
+        // }
 
-        foreach($request->courseAdd as $item){
-            $student->course->create([
-                'course_id' => $item
-            ]);
-        }
+        // foreach($request->courseAdd as $item){
+        //     $student->course->create([
+        //         'course_id' => $item
+        //     ]);
+        // }
 
         $validated = $request->validated();
         $student->update($validated);
