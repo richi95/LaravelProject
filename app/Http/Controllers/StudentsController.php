@@ -76,7 +76,9 @@ class StudentsController extends Controller
     }
 
     function delete(Student $student){
-
+        CourseStudent::where('student_id', $student->id)->delete();
+        $student->delete();
+        return redirect()->to('/students');;
     }
 
 

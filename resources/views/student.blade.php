@@ -19,7 +19,8 @@
 
             <ul class="listHead">
                 <li><a href="{{route('students.edit', ['student'=> $student])}}"><i class="fa fa-edit"></i>Edit</a></li>
-                <li><a href="/studygroup/{{ '$group->id' }}/delete"><i class="fa fa-trash"></i>Delete</a></li>
+                <li><a href="{{route('student.delete', ['student'=> $student])}}"
+                    onclick="return confirm('Tényleg törlöd?')"><i class="fa fa-trash"></i>Delete</a></li>
             </ul>
 
         </header>
